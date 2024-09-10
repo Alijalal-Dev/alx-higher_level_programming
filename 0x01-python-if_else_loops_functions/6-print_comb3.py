@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-for i in range(10):
-    for j in range(i + 1, 10):
-        if i != 8 or j != 9:
-            print(f"{i}{j}, ", end="")
-        else:
-            print(f"{i}{j}")
+for number_1 in range(0, 10):
+    for number_2 in range(number_1 + 1, 10):
+        print("{}{}".format(number_1, number_2),
+              end="\n" if number_1 == 8 and number_2 == 9 else ", ")
