@@ -1,0 +1,126 @@
+======================
+ How to Use add_integer.py
+======================
+
+add_integer module unit tests
+
+Addition of Integers
+=====================
+
+``add_integer()`` returns the integer sum of its arguments. For integers, that value is equivalent to using the ``+`` operator.
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
+
+It also works with negative integers.
+
+::
+
+    >>> add_integer(-2, -3)
+    -5
+
+Addition of Floats
+=====================
+
+``add_integer()`` also works with floating-point values. It will return the integer part of the sum.
+
+::
+
+    >>> add_integer(2.0, 3.7)
+    5
+
+Combining Integer and Float
+===========================
+
+``add_integer()`` can handle one integer and one float as arguments. It will return the integer sum.
+
+::
+
+    >>> add_integer(2, 3.5)
+    5
+
+Default Value
+=============
+
+If you provide only one argument, the second argument is set to the default value, which is 98.
+
+::
+
+    >>> add_integer(5)
+    103
+
+Type Errors
+===========
+
+If one of the arguments is not a numeric value (int or float), a TypeError is raised.
+
+::
+
+    >>> add_integer(None, 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer("text", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(3, "text")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Undefined Variables
+===================
+
+If you use undefined variables as arguments, a NameError is raised.
+
+::
+
+    >>> add_integer(text, 3)
+    Traceback (most recent call last):
+    NameError: name 'text' is not defined
+
+    >>> add_integer(text1, text2)
+    Traceback (most recent call last):
+    NameError: name 'text1' is not defined
+
+Invalid Arguments
+=================
+
+If both arguments are not integers, a TypeError is raised.
+
+::
+
+    >>> add_integer("text1", "text2")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Overflow Error
+==============
+
+If 'a' is an integer and 'b' is set to float('inf'), an OverflowError is raised.
+
+::
+
+    >>> add_integer(5, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+Invalid Value
+=============
+
+If you provide float('NaN') as an argument, a ValueError is raised.
+
+::
+
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
