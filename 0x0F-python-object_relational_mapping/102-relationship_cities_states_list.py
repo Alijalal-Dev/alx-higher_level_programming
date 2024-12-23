@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""List all the state object that contain `a` letter from the database."""
+"""List all city objects from the database."""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+from relationship_city import City
 
 if __name__ == "__main__":
     engine = create_engine(
@@ -15,12 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in (
-        session.query(State)
-        .filter(State.name.ilike("%a%"))
-        .order_by(State.id)
-        .all()
-    ):
-        print(f"{state.id}: {state.name}")
+    for city in session.query(City).order_by(City.id).all():
+        print(f"{city.id}: {city.name} -> {city.state.name}")
 
     session.close()
