@@ -9,4 +9,3 @@ if __name__ == "__main__":
     req = Request(sys.argv[1])
     with urlopen(req) as response:
         print(dict(response.headers).get("X-Request-Id"))
-
