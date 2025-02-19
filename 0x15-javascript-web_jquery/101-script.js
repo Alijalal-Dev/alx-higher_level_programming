@@ -1,11 +1,11 @@
-.ready(function () {
-  .click(function () {
-    .append('<li>Item</li>');
+$('document').ready(function () {
+  $('DIV#add_item').click(function () {
+    $('UL.my_list').append('<li>Item</li>');
   });
-  .click(function () {
-    .remove();
+  $('DIV#remove_item').click(function () {
+    $('UL.my_list li:last').remove();
   });
-  .click(function () {
-    .empty();
+  $('DIV#clear_list').click(function () {
+    $('UL.my_list').empty();
   });
 });
