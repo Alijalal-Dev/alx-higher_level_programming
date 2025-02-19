@@ -1,0 +1,3 @@
+.click(function () {
+  .addClass('red');
+});
